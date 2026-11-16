@@ -26,9 +26,8 @@
 ---
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 1: HERO_WORKSPACE -->
-> 🖼️ **[Screenshot Placeholder 1: Workspace Editor Overview]**  
-> *Gợi ý ảnh chụp: Chụp toàn cảnh màn hình Workspace Editor gồm Chat Panel bên trái, Live Preview website bên phải, thanh Header có Credit Badge và nút Export HTML.*  
-> ![Skipli Canvas Workspace Overview](docs/images/01-workspace-overview.png)
+<img width="1914" height="908" alt="image" src="https://github.com/user-attachments/assets/cecf4273-2327-4e88-ad20-0a9476ff87ae" />
+
 
 ---
 
@@ -72,9 +71,8 @@ Skipli Canvas bridges the gap between raw AI code generation (like v0 or Lovable
 - **One-Click Code Inspection & Export:** View syntax-highlighted HTML source code or download standalone `.html` bundle instantly.
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 2: AI_GENERATION -->
-> 🖼️ **[Screenshot Placeholder 2: AI Website Generation & Resizable Dual-Pane]**  
-> *Gợi ý ảnh chụp: Chụp lúc AI đang render website, thanh trượt Resizer ở giữa 2 cột Chat và Preview, và các nút chuyển đổi Desktop/Tablet/Mobile.*  
-> ![AI Generation & Dual-Pane Preview](docs/images/02-ai-generation-preview.png)
+<img width="1916" height="910" alt="image" src="https://github.com/user-attachments/assets/dcf830c1-b3d5-435e-9461-62a147082bbc" />
+
 
 ---
 
@@ -85,14 +83,11 @@ Skipli Canvas bridges the gap between raw AI code generation (like v0 or Lovable
 - **Bi-directional PostMessage Bridge:** Ultra-fast, zero-latency communication channel (`VisualBridge`) synchronizing DOM modifications between the React host and the iframe document.
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 3: VISUAL_EDITING -->
-> 🖼️ **[Screenshot Placeholder 3: Inline Text Editing & Image Replacer Modal]**  
-> *Gợi ý ảnh chụp: Chụp thao tác nhấp chuột trực tiếp lên tiêu đề website để chỉnh sửa inline hoặc cửa sổ popup chọn đổi ảnh ImageReplacerModal.*  
-> ![Direct Visual Editing](docs/images/03-visual-inline-edit.png)
+<img width="1533" height="864" alt="image" src="https://github.com/user-attachments/assets/dd7b93bf-3a53-4d94-8606-52621c21a8f0" />
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 4: SECTION_NAVIGATOR -->
-> 🖼️ **[Screenshot Placeholder 4: Section Structure Navigator Drawer]**  
-> *Gợi ý ảnh chụp: Ngăn kéo Section Navigator mở ra từ cạnh phải, liệt kê danh sách các Section (Hero, Features, Pricing, Footer) kèm nút đổi vị trí.*  
-> ![Section Navigator Drawer](docs/images/04-section-navigator.png)
+<img width="1537" height="868" alt="image" src="https://github.com/user-attachments/assets/670fd2b7-b980-4d30-99f9-7ff3c970e93a" />
+
 
 ---
 
@@ -102,9 +97,8 @@ Skipli Canvas bridges the gap between raw AI code generation (like v0 or Lovable
 - **Safety Confirmation:** Prevents accidental data overwrite with informative rollback warnings.
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 5: VERSION_ROLLBACK -->
-> 🖼️ **[Screenshot Placeholder 5: Interaction & Milestone History Drawer]**  
-> *Gợi ý ảnh chụp: Drawer lịch sử bên trái hiển thị các bước mốc (Step 1, Step 2, Manual Edit Milestone) cùng nút khôi phục Rollback.*  
-> ![Version History & Rollback](docs/images/05-version-history-rollback.png)
+<img width="677" height="419" alt="image" src="https://github.com/user-attachments/assets/5fd1a32b-3c07-4a12-aa78-60b226b44a80" />
+
 
 ---
 
@@ -119,19 +113,17 @@ Skipli Canvas bridges the gap between raw AI code generation (like v0 or Lovable
 - **Graceful Out-of-Credits Handling:** The `OutOfCreditsAlertModal` politely informs users when quota is depleted and offers direct one-click top-up.
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 6: PRICING_MODAL -->
-> 🖼️ **[Screenshot Placeholder 6: Top Up AI Credits Modal (Stripe Pricing)]**  
-> *Gợi ý ảnh chụp: Bảng giá nạp credits mở lên hiển thị 2 gói Creator Pack và Pro Studio (Best Value) kèm bảo chứng bảo mật PCI-DSS.*  
-> ![Top Up AI Credits Pricing Modal](docs/images/06-pricing-modal.png)
+<img width="925" height="830" alt="image" src="https://github.com/user-attachments/assets/1c667313-eb79-48ba-9650-13ecf0103450" />
+
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 7: PAYMENT_SUCCESS_HISTORY -->
-> 🖼️ **[Screenshot Placeholder 7: Payment Success Popup & Credit Transaction Ledger]**  
-> *Gợi ý ảnh chụp: Popup thông báo Nạp Tiền Thành Công (Payment Successful) hoặc bảng Sổ cái lịch sử giao dịch CreditHistoryModal.*  
-> ![Payment Success & Credit History](docs/images/07-payment-success-history.png)
+<img width="696" height="746" alt="image" src="https://github.com/user-attachments/assets/9aef7460-be77-4e17-9088-2d8db1b02912" />
+<img width="768" height="626" alt="image" src="https://github.com/user-attachments/assets/d971fd69-c786-4d49-8865-1273e2642142" />
+
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 8: STOP_CONFIRM_MODAL -->
-> 🖼️ **[Screenshot Placeholder 8: Generation Stop & 100% Refund Modal]**  
-> *Gợi ý ảnh chụp: Hộp thoại xác nhận dừng tạo website (StopConfirmModal) cảnh báo hủy tiến trình và cam kết hoàn 1.0 credit 100%.*  
-> ![Stop Generation & 100% Refund](docs/images/08-stop-refund-modal.png)
+<img width="625" height="574" alt="image" src="https://github.com/user-attachments/assets/5945a658-b2bc-431f-a1f0-0148e5269400" />
+
 
 ---
 
@@ -141,9 +133,10 @@ Skipli Canvas bridges the gap between raw AI code generation (like v0 or Lovable
 - **Adaptive Dark / Light Themes:** Fully integrated theme switcher with persistent localStorage state and fluid Tailwind CSS transitions.
 
 <!-- 📸 SCREENSHOT PLACEHOLDER 9: DASHBOARD_STORAGE -->
-> 🖼️ **[Screenshot Placeholder 9: Projects Grid & Storage Explorer Dashboard]**  
-> *Gợi ý ảnh chụp: Màn hình HomeDashboard hiển thị lưới danh sách các dự án đã tạo và tab Kho lưu trữ (Storage Explorer).*  
-> ![Projects Hub & Storage Explorer](docs/images/09-dashboard-storage.png)
+<img width="1918" height="910" alt="image" src="https://github.com/user-attachments/assets/ed817540-3559-4272-965e-72a678067abc" />
+<img width="1913" height="909" alt="image" src="https://github.com/user-attachments/assets/e3d84960-62c8-41e6-bad3-9ae7e767a3e0" />
+
+
 
 ---
 
