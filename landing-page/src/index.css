@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAF9F5;
+    color: #141413;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Editorial Serif typography for Anthropic / Claude style headlines */
+  h1, h2, .font-serif {
+    font-family: 'Newsreader', Georgia, serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Subtle tech dot grid for digital atmosphere */
+.bg-tech-dots {
+  background-image: radial-gradient(#D6D4CA 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Linear & Anthropic style precision technical grid */
+.bg-tech-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 23, 42, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Living Ambient Video Background Animations */
+@keyframes auroraBreathe {
+  0%, 100% {
+    opacity: 0.75;
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -15px) scale(1.08);
+  }
+}
+
+.animate-aurora-breathe {
+  animation: auroraBreathe 12s ease-in-out infinite;
+}
+
+@keyframes ambientDrift1 {
+  0% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+  33% {
+    transform: translate(80px, -50px) scale(1.15) rotate(6deg);
+  }
+  66% {
+    transform: translate(-50px, 70px) scale(0.92) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes ambientDrift2 {
+  0% {
+    transform: translate(0px, 0px) scale(1.05) rotate(0deg);
+  }
+  33% {
+    transform: translate(-70px, 80px) scale(0.9) rotate(-8deg);
+  }
+  66% {
+    transform: translate(60px, -45px) scale(1.2) rotate(10deg);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1.05) rotate(0deg);
+  }
+}
+
+@keyframes ambientDrift3 {
+  0% {
+    transform: translate(0px, 0px) scale(0.95);
+  }
+  50% {
+    transform: translate(45px, 55px) scale(1.12);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(0.95);
+  }
+}
+
+.animate-ambient-1 {
+  animation: ambientDrift1 20s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-ambient-2 {
+  animation: ambientDrift2 24s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-ambient-3 {
+  animation: ambientDrift3 16s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Smooth micro-fade animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Scroll reveal utility classes */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

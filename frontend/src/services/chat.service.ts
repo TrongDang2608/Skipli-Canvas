@@ -1,0 +1,126 @@
+import { ChatApiResponse } from '../types/chat.types';
+import { API_BASE_URL, STORAGE_KEYS } from '../config/env.config';
+import { refreshTokenApi } from './auth.api';
+
+export class ChatService {
+  public async sendChat(
+    prompt: string,
+    sessionId?: string,
+    signal?: AbortSignal,
+    isRetryAfterRefresh = false
+  ): Promise<ChatApiResponse['data']> {
+    const token = localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/chat`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+        body: JSON.stringify({ prompt, sessionId }),
+        signal,
+      });
+
+      if (response.status === 401 && !isRetryAfterRefresh) {
+        try {
+          const refreshRes = await refreshTokenApi();
+          const newAccessToken = refreshRes.accessToken;
+          if (newAccessToken) {
+            localStorage.setItem(STORAGE_KEYS.ACCESS_TOKEN, newAccessToken);
+            return this.sendChat(prompt, sessionId, signal, true);
+          }
+        } catch {
+          localStorage.removeItem(STORAGE_KEYS.ACCESS_TOKEN);
+          window.location.reload();
+          throw new Error('Session expired.');
+        }
+      }
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        const message =
+          errorData?.message ||
+          errorData?.error ||
+          `Server error: ${response.status} ${response.statusText}`;
+        throw new Error(message);
+      }
+
+      const result = (await response.json()) as ChatApiResponse;
+      return result.data;
+    } catch (error: unknown) {
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        throw error;
+      }
+      const errMsg = error instanceof Error ? error.message : 'AI server connection error';
+      throw new Error(errMsg);
+    }
+  }
+
+  public extractHtml(content: string): string {
+    if (!content) return '';
+    return '';
+  }
+
+  public formatChatDisplay(content: string, version?: string, isLoading?: boolean): string {
+    if (isLoading) {
+      return '';
+    }
+
+    if (!content) {
+      return `✨ Successfully built and rendered version ${version || 'update'} on Live Preview Canvas.`;
+    }
+
+    if (
+      content.includes("Agent couldn't generate a response") ||
+      content.includes('failover candidates exhausted') ||
+      content.includes('rate_limit')
+    ) {
+      return '⚠️ AI engine temporarily interrupted due to network traffic. Please click "Generate" or resend your prompt to continue!';
+    }
+
+    let textOnly = content.replace(/```[a-z]*[\s\S]*?```/gi, '');
+    textOnly = textOnly.replace(/```[a-z]*[\s\S]*/gi, '');
+
+    const firstHtmlTagIndex = textOnly.search(/<(?:!DOCTYPE|html|body|div|header|section|main|nav|footer|style|script|svg|form|table|h1|h2|h3|p|ul|ol|li|article|aside|details)/i);
+    if (firstHtmlTagIndex !== -1) {
+      textOnly = textOnly.substring(0, firstHtmlTagIndex).trim();
+    }
+
+    textOnly = textOnly.replace(/<[^>]*>?/gm, '').trim();
+
+    const isCodeLabelArtifact = /^(html|css|js|javascript|json|markdown|xml|code|mã\s*nguồn)[:\s]*$/i.test(textOnly.trim());
+
+    if (!textOnly || textOnly.length < 5 || isCodeLabelArtifact) {
+      return `✨ Successfully built and rendered version ${version || 'update'} on Live Preview Canvas.`;
+    }
+
+    return textOnly;
+  }
+
+  /**
+   * Gọi API dừng tiến trình chat và hoàn tiền hold credit đang pending
+   */
+  public async stopChat(): Promise<{ refunded: boolean; newBalance?: number }> {
+    const token = localStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+    try {
+      const res = await fetch(`${API_BASE_URL}/chat/stop`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
+        },
+      });
+      if (res.ok) {
+        const json = await res.json();
+        return json.data || { refunded: false };
+      }
+    } catch (e) {
+      console.warn('[ChatService] stopChat call failed:', e);
+    }
+    return { refunded: false };
+  }
+}
+
+export const chatService = new ChatService();
+
